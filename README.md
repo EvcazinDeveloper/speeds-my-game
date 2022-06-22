@@ -1,2 +1,2 @@
-# speeds-my-game
-I tried making a sonic based game
+# p5.play-boilerplate
+Boiler plate for p5.play

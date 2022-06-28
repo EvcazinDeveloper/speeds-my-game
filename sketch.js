@@ -305,9 +305,14 @@ function draw() {
     button.size(100, 100);
     button.mouseClicked(transformation);
   }
+  if (player.isTouching(invisibleWall)) {
+    textSize(50)
+    text("VOCÊ GANHOU!", player.x, player.y - 300);
+    player.veloctyX = 0
+    player.veloctyY = 0
+  }
   player.collide(ground);
   player.collide(plataform);
-  player.collide(invisibleWall)
   plataform.debug = true
   player.debug = true
   drawSprites();
@@ -315,23 +320,4 @@ function draw() {
 
 function transformation() {
   player.changeAnimation("transformedidle");
-}
-
-function gameOver() {
-  swal(
-    {
-      title: `Fim, você ganhou!`,
-      text: "Obrigado por jogar!! Logo logo, terá mais!",
-      imageUrl:
-        "https://raw.githubusercontent.com/whitehatjr/PiratesInvasion/main/assets/boat.png",
-      imageSize: "150x150",
-      confirmButtonText: "Okay!"
-    },
-    //restart function
-    function(isConfirm) {
-      if (isConfirm) {
-        location.reload();
-      }
-    }
-  );
 }
